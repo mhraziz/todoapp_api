@@ -1,18 +1,14 @@
-import TodoShow from './TodoShow';
+import React from 'react';
+import TodoItem from './TodoItem';
 
-const TodoList = ({ todos, removeTodo, changeTodo }) => {
-  const renderedTodos = todos.map((todo) => {
-    return (
-      <TodoShow
-        key={todo.id}
-        todo={todo}
-        removeTodo={removeTodo}
-        changeTodo={changeTodo}
-      />
-    );
-  });
-
-  return <ul className="todo-list">{renderedTodos}</ul>;
+const TodoList = ({ todos, updateTodo, deleteTodo }) => {
+  return (
+    <div className="todo-list">
+      {todos.map(todo => (
+        <TodoItem key={todo.id} todo={todo} updateTodo={updateTodo} deleteTodo={deleteTodo} />
+      ))}
+    </div>
+  );
 };
 
 export default TodoList;
