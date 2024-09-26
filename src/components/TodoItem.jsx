@@ -1,9 +1,11 @@
-import { useState } from 'react';
+// src/components/TodoItem.js
+import { useState, useContext } from 'react';
+import { TodoContext } from '../context/TodoContext';
 
-
-const TodoItem = ({ todo, updateTodo, deleteTodo }) => {
+const TodoItem = ({ todo }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [title, setTitle] = useState(todo.todo1);
+  const { updateTodo, deleteTodo } = useContext(TodoContext);
 
   const handleEdit = () => {
     if (isEditing) {
@@ -15,6 +17,7 @@ const TodoItem = ({ todo, updateTodo, deleteTodo }) => {
   const handleDelete = () => {
     deleteTodo(todo.id);
   };
+
   return (
     <div className="todo-item">
       {isEditing ? (

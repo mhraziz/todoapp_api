@@ -1,7 +1,10 @@
-import { useState } from 'react';
+// src/components/TodoCreate.js
+import { useState, useContext } from 'react';
+import { TodoContext } from '../context/TodoContext';
 
-const TodoCreate = ({ createTodo }) => {
+const TodoCreate = () => {
   const [title, setTitle] = useState('');
+  const { createTodo } = useContext(TodoContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
